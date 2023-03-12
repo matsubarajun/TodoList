@@ -1167,7 +1167,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			"css/app": 0,
 /******/ 			"css/profile": 0
 /******/ 		};
-/******/ 		 
+/******/ 		
 /******/ 		// no chunk on demand loading
 /******/ 		
 /******/ 		// no prefetching
@@ -1209,8 +1209,6 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-
-           
 /******/ 	
 /************************************************************************/
 /******/ 	
