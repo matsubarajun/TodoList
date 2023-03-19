@@ -1,19 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\ProfileController as PublicProfileController;
 
-Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
-    Route::get('profile/create', 'add')->name('profile.add');
-    Route::post('profile/create', 'create')->name('profile.create');
-    Route::get('profile/edit', 'edit')->name('profile.edit');
-    Route::post('profile/edit', 'update')->name('profile.update');
+use App\Http\Controllers\RemindController;
+Route::controller(RemindController::class)->group(function() {
+    Route::get('reminds', 'index')->name('reminds.index');
+    Route::post('reminds', 'store')->name('reminds.store');
+    Route::get('reminds/{remind}/edit', 'edit')->name('reminds.edit');
+    Route::put('reminds/{remind}', 'update')->name('reminds.update');
+    Route::delete('reminds/{remind}', 'destroy')->name('reminds.destroy');
 });
-
-Auth::routes();
-
-Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
 /*
 /*
 |--------------------------------------------------------------------------
@@ -26,18 +22,19 @@ Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile
 |
 */
 
+Route::resource('/reminds', RemindController::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/top', function () {
+    return view('top');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+Route::get('/remind', [RemindController::class, 'index'])->name('remind.index');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
