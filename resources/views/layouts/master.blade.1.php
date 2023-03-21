@@ -33,21 +33,21 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('user') }}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('reminds') }}">reminds</a>
+              <a class="nav-link" href="#">remind</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('task') }}">task</a>
+              <a class="nav-link" href="#">task</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('calendar') }}">calendar</a>
+              <a class="nav-link" href="#">calendar</a>
             </li>        
           </ul>
           <form class="navbar-nav mt-2 mt-md-0">
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('guide') }}">使い方ガイド</a>
+              <a class="nav-link" href="#">使い方ガイド</a>
             </li>
             <form class="navbar-nav mt-2 mt-md-0">
             <li class="nav-item active">
