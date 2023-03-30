@@ -32,6 +32,7 @@ class RemindController extends Controller
         ]);
         
         Toastr::success('新しいリマインドが追加されました！');
+        // dd($request);
         return redirect()->route('reminds.index');
     }
     

@@ -36,7 +36,7 @@
               <a class="nav-link" href="{{ route('user') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('reminds') }}">reminds</a>
+              <a class="nav-link" href="{{ route('reminds.index') }}">reminds</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('task') }}">task</a>

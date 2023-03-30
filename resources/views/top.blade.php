@@ -20,7 +20,7 @@
                 無数にも及ぶ用事をこなしていく上で物忘れは必ず起こります。<br>
                 そんな忙しいあなたの為の機能です。
             </p>
-            <p><a class="btn btn-lg btn-primary" href="{{ route('reminds') }}" role="button">Remindへ</a></p>
+            <p><a class="btn btn-lg btn-primary" href="{{ route('reminds.index') }}" role="button">Remindへ</a></p>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
         <img class="rounded-circle" src="/images/remind.i.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>Remind</h2>
         <p>こちらは簡易的なメモアプリとして利用できます。シンプルかつ利用しやすい仕様となっておりますので、ふとした事や少し先の予定などを記録するとよいでしょう。</p>
-        <p><a class="btn btn-secondary" href="{{ route('reminds') }}" role="button">Remindへ &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="{{ route('reminds.index') }}" role="button">Remindへ &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="rounded-circle" src="/images/task_i.jpg" alt="Generic placeholder image" width="140" height="140">

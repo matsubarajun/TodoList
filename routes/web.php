@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RemindController;
+use App\Http\Controllers\TaskController;
 
 
 
@@ -13,6 +14,8 @@ Route::controller(RemindController::class)->middleware('auth')->group(function()
     Route::put('reminds/{remind}', 'update')->name('reminds.update');
     Route::delete('reminds/{remind}', 'destroy')->name('reminds.destroy');
 });
+
+
 /*
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +30,6 @@ Route::controller(RemindController::class)->middleware('auth')->group(function()
 
 Auth::routes();
 
-Route::get('/reminds', [App\Http\Controllers\RemindController::class, 'index'])->middleware('auth')->name('reminds');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 
 Route::get('/top', [App\Http\Controllers\TopController::class, 'index'])->name('top');
@@ -38,6 +39,11 @@ Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->midd
 Route::get('/guide', [App\Http\Controllers\GuideController::class, 'index'])->name('guide');
 
 Route::get('/task', [App\Http\Controllers\TaskController::class, 'index'])->middleware('auth')->name('task');
+
+// Route::get('{any}', function () {
+//     return view('layouts.app');
+// })->where('any','.*');
+
 
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->middleware('auth')->name('calendar');
 
