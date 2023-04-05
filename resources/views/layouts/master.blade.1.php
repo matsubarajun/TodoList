@@ -14,7 +14,7 @@
     
   </head>
   
-  <body>
+  <body >
     <a id="skippy" class="sr-only sr-only-focusable" href="#content">
       <div class="container">
         <span class="skiplink-text">Skip to main content</span>
@@ -33,38 +33,51 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('user') }}">My page <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ route('user') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('reminds.index') }}">reminds</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('tasks.home') }}">task</a>
+              <a class="nav-link" href="*">task</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('calendar') }}">calendar</a>
             </li>        
           </ul>
-          <div class="navbar-nav mt-2 mt-md-0">
+          <form class="navbar-nav mt-2 mt-md-0">
             <li class="nav-item active">
               <a class="nav-link" href="{{ route('guide') }}">使い方ガイド</a>
             </li>
-          </div>
-            
-           <div class="my-navbar-control mt-2 mt-md-0 ">
-              @if(Auth::check())
-                <span class="my-navbar-item active">{{ Auth::user()->name }}さん</span>
-        ｜
-                <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form class="navbar-nav mt-2 mt-md-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ route('register') }}">新規登録</a>
+            </li>
+          @guest
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+            </li>
+          
+          @else
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="d-none">
                   @csrf
                 </form>
-              @else
-                <a class="my-navbar-item " href="{{ route('login') }}">ログイン</a>
-        ｜
-                <a class="my-navbar-item " href="{{ route('register') }}">会員登録</a>
-              @endif
-            </div>
+              </div>
+            </li>
+          @endguest
+          </form>
         </div>
       </nav>
     </header>
@@ -72,14 +85,6 @@
     @yield('content')
   
 <script src="{{ asset('js/holder.min.js') }}"></script>
-@if(Auth::check())
-  <script>
-    document.getElementById('logout').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('logout-form').submit();
-    });
-  </script>
-@endif
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script>

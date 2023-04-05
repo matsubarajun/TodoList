@@ -35,7 +35,7 @@
                 この機能では、大きな仕事を細分化して管理し、<br>
                 期日と進捗状況を視覚化してくれるものです。
             </p>
-            <p><a class="btn btn-lg btn-primary" href="{{ route('task') }}" role="button">Taskへ</a></p>
+            <p><a class="btn btn-lg btn-primary" href="{{ route('tasks.home') }}" role="button">Taskへ</a></p>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
         <img class="rounded-circle" src="/images/task_i.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>Task</h2>
         <p>少し作業量が多かったり、多忙な方にはTask機能がおすすめです。こちらでは1つの事柄を細分化させ、より精密な進捗管理を行うことができます。</p>
-        <p><a class="btn btn-secondary" href="{{ route('task') }}" role="button">Taskへ &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="{{ route('tasks.home') }}" role="button">Taskへ &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="rounded-circle" src="/images/calendar_i.jpg" alt="Generic placeholder image" width="140" height="140">

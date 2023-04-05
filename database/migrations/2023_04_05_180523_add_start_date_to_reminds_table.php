@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTaskItemsTableToNameNullable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterTaskItemsTableToNameNullable extends Migration
      */
     public function up()
     {
-        Schema::table('task_items', function (Blueprint $table) {
-            $table->string('name')->nullable()->change();
+        Schema::table('reminds', function (Blueprint $table) {
+            $table->date('start_date')
         });
     }
 
@@ -25,8 +25,8 @@ class AlterTaskItemsTableToNameNullable extends Migration
      */
     public function down()
     {
-        Schema::table('task_items', function (Blueprint $table) {
-            $table->string('name')->change();
+        Schema::table('reminds', function (Blueprint $table) {
+            //
         });
     }
 };

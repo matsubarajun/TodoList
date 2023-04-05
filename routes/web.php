@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RemindController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FolderController;
+use App\Http\Controllers\ScheduleController;
+
 
 
 
@@ -16,6 +19,25 @@ Route::controller(RemindController::class)->middleware('auth')->group(function()
 });
 
 
+Route::controller(TaskController::class)->middleware('auth')->group(function() {
+    Route::get('/tasks', 'indexHome')->name('tasks.home');
+    Route::get('/folders/{id}/tasks', 'index')->name('tasks.index');
+    Route::get('/folders/{id}/tasks/create', 'showCreateForm')->name('tasks.create');
+    Route::post('/folders/{id}/tasks/create', 'create');
+    Route::get('/folders/{id}/tasks/{task_id}/edit', 'showEditForm')->name('tasks.edit');
+    Route::post('/folders/{id}/tasks/{task_id}/edit', 'edit');
+    Route::get('/folders/{id}/tasks/{task_id}/destroy', 'destroy')->name('tasks.destroy');
+});
+
+Route::controller(FolderController::class)->middleware('auth')->group(function() {
+    Route::get('/folders/create', 'showCreateForm')->name('folders.create');
+    Route::post('/folders/create', 'create');
+
+});
+
+Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
+Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
+Route::post('/remind-get', [RemindController::class, 'remindGet'])->name('remind-get');
 /*
 /*
 |--------------------------------------------------------------------------
@@ -38,14 +60,7 @@ Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->midd
 
 Route::get('/guide', [App\Http\Controllers\GuideController::class, 'index'])->name('guide');
 
-Route::get('/task', [App\Http\Controllers\TaskController::class, 'index'])->middleware('auth')->name('task');
-
-// Route::get('{any}', function () {
-//     return view('layouts.app');
-// })->where('any','.*');
-
-
-Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->middleware('auth')->name('calendar');
+Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'index'])->name('calendar');
 
 Route::get('/', function () {
     return view('top');

@@ -13,7 +13,7 @@
 
 <body>
     <div class="container mt-3">
-        <h1>Todoリスト</h1>
+        <h1>Remindリスト</h1>
     </div>
     <div class="container mt-3">
         <div class="container mb-4">
