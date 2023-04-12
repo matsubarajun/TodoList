@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Remind;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class RemindController extends Controller
 {
@@ -25,14 +26,15 @@ class RemindController extends Controller
         $request->validate([
             'newRemind' => 'required|max:255',
             'newDeadline' => 'nullable|after:"now"',
-            'start_date' => 'required|integer',
             ]);
             
         Remind::create([
             'remind' => $request->newRemind,    
             'deadline' => $request->newDeadline,
-            'start_date' => $request->newStartDate,
+
         ]);
+        
+        
         
         Toastr::success('新しいリマインドが追加されました！');
         // dd($request);
@@ -96,18 +98,22 @@ class RemindController extends Controller
         // カレンダー表示期間
         $start_date = date('Y-m-d', $request->input('start_date') / 1000);
         $end_date = date('Y-m-d', $request->input('end_date') / 1000);
+        
 
         // 登録処理
         return Remind::query()
+        
             ->select(
                 // FullCalendarの形式に合わせる
-                'start_date as start',
+                'deadline as start',
                 'deadline as end',
                 'remind as title'
+               
             )
             // FullCalendarの表示範囲のみ表示
             ->where('deadline', '>', $start_date)
-            ->where('start_date', '<', $end_date)
-            ->get()->toArray();
-    }
+            ->where('deadline', '<', $end_date)
+            ->get();
+        
+}
 }

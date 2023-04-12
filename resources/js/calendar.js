@@ -59,6 +59,7 @@ let calendar = new Calendar(calendarEl, {
             .then((response) => {
                 // 追加したイベントを削除
                 calendar.removeAllEvents();
+                
                 // カレンダーに読み込み
                 successCallback(response.data);
             })
@@ -74,9 +75,7 @@ let calendar = new Calendar(calendarEl, {
             })
             
             .then((response) => {
-                // 追加したイベントを削除
-                // calendar.removeAllEvents();
-                
+
                 // カレンダーに読み込み
                 successCallback(response.data);
             })

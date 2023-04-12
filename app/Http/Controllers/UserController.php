@@ -19,9 +19,11 @@ class UserController extends Controller
     {
         $reminds = Remind::orderByRaw('`deadline` IS NULL ASC')->orderBy('deadline')->get();
         
+        $folders = Auth::user()->folders()->get();
+        
         return view('user', [
             'reminds' => $reminds,
-
+            'folders' => $folders,
         ]);
     
     

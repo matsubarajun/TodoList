@@ -35,7 +35,11 @@
       <div class="card-body">
         <u>タスクフォルダ一覧</u>
         <ul class="list-unstyled mt-3 mb-4">
-          
+          @foreach($folders as $folder)
+              <li>
+                <ul style="text-align: left"　scope="row" class="folder">{{ $folder->title }}</ul>
+              </li>
+            @endforeach
           
         
         <p><a class="btn btn-lg btn-primary" href="{{ route('tasks.home') }}" role="button">Taskへ</a></p>
