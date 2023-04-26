@@ -16,8 +16,5 @@ class Remind extends Model
         'deadline',
     ];
     
-    protected $casts = [
-        'created_at' => 'datetime:Y-m-d',
-    ];
     
 }

@@ -55,7 +55,7 @@ class RemindController extends Controller
         ]);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'updateRemind' =>'required|max:255',     

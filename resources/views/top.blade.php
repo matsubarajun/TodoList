@@ -86,7 +86,7 @@
       <div class="col-lg-4">
         <img class="rounded-circle" src="/images/calendar_i.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>Calendar</h2>
-        <p>Remind・Taskと連携したカレンダーとなってます。月ごとに設定されている期限を一目で確認することができます。</p>
+        <p>月ごとに設定されている期限を一目で確認することができます。</p>
         <p><a class="btn btn-secondary" href="{{ route('calendar') }}" role="button">Calendarへ &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
